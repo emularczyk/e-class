@@ -1,6 +1,7 @@
 package com.example.demo.studentGroup;
 
 import com.example.demo.subject.Subject;
+import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.annotation.Id;
 
@@ -11,5 +12,5 @@ public class StudentGroup {
     @Id
     private String name;
     private Subject subject;
-    private UUID teacherId;
+    private ObjectId teacherId;
 }
