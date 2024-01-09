@@ -6,7 +6,6 @@ import lombok.Getter;
 import org.bson.types.ObjectId;
 
 import java.time.OffsetDateTime;
-import java.util.UUID;
 
 @Builder
 @AllArgsConstructor

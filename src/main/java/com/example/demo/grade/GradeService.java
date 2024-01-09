@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import java.time.OffsetDateTime;
 import java.util.List;
-import java.util.UUID;
 
 @RequiredArgsConstructor
 @Service
@@ -26,7 +25,6 @@ public class GradeService {
     public Grade createGrade(final GradeRequest gradeRequest) {
         return gradeRepository.insert(
                 Grade.builder()
-                       // .gradeId(new ObjectId())
                         .gradeType(gradeRequest.getGradeType())
                         .gradeValue(gradeRequest.getGradeValue())
                         .date(OffsetDateTime.now())
@@ -42,7 +40,6 @@ public class GradeService {
 
         return gradeRepository.save(
                 Grade.builder()
-                       // .gradeId(gradeId)
                         .gradeType(gradeRequest.getGradeType())
                         .gradeValue(gradeRequest.getGradeValue())
                         .date(OffsetDateTime.now())

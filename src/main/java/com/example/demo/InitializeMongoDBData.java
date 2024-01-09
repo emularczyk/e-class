@@ -29,8 +29,32 @@ public class InitializeMongoDBData implements CommandLineRunner {
                 4,
                 new ObjectId()
         );
+        Grade grade2 = new Grade(
+                GradeType.QUIZ,
+                GradeValue.FOUR_PLUS,
+                OffsetDateTime.now(ZoneId.systemDefault()),
+                3,
+                new ObjectId()
+        );
+        Grade grade3 = new Grade(
+                GradeType.ACTIVITY,
+                GradeValue.FIVE,
+                OffsetDateTime.now(ZoneId.systemDefault()),
+                1,
+                new ObjectId()
+        );
+        Grade grade4 = new Grade(
+                GradeType.HOMEWORK,
+                GradeValue.THREE_PLUS,
+                OffsetDateTime.now(ZoneId.systemDefault()),
+                2,
+                new ObjectId()
+        );
 
         System.out.println("Inserting data to mongo...");
         gradeRepository.insert(grade);
+        gradeRepository.insert(grade2);
+        gradeRepository.insert(grade3);
+        gradeRepository.insert(grade4);
     }
 }

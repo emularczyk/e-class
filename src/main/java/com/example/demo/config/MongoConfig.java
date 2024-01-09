@@ -1,10 +1,8 @@
 package com.example.demo.config;
 
-import org.bson.types.ObjectId;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.convert.converter.Converter;
-import org.springframework.data.convert.CustomConversions;
 import org.springframework.data.mongodb.core.convert.MongoCustomConversions;
 
 import java.time.OffsetDateTime;
@@ -14,18 +12,11 @@ import java.util.*;
 @Configuration
 public class MongoConfig {
 
-//    @Bean
-//    public UuidIdentifiedEntityEventListener uuidIdentifiedEntityEventListener() {
-//        return new UuidIdentifiedEntityEventListener();
-//    }
-
     @Bean
     public MongoCustomConversions mongoCustomConversions() {
         return new MongoCustomConversions(Arrays.asList(
                 new OffsetDateTimeReadConverter(),
                 new OffsetDateTimeWriteConverter()
-                //new ObjectIdToUuidConverter()
-                //new UUIDTOObjectIdConverter()
         ));
     }
 
@@ -44,19 +35,5 @@ public class MongoConfig {
             return source == null ? null : source.toInstant().atOffset(ZoneOffset.UTC);
         }
     }
-
-//    class ObjectIdToUuidConverter implements Converter<ObjectId, UUID> {
-//        @Override
-//        public UUID convert(ObjectId objectId) {
-//            byte[] bytes = objectId.toByteArray();
-//            return UUID.nameUUIDFromBytes(bytes);
-//        }
-//    }
-//        class UUIDTOObjectIdConverter implements Converter<UUID, ObjectId> {
-//        @Override
-//        public ObjectId convert(UUID uuid) {
-//            return new convertUUIDtoObjectId(uuid.toString());
-//        }
-//    }
 
 }

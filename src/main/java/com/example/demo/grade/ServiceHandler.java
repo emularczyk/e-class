@@ -5,13 +5,12 @@ import org.bson.types.ObjectId;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.UUID;
 import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @Service
 public class ServiceHandler {
-   // private final GradeValidator gradeValidator; // TODO
+    // private final GradeValidator gradeValidator; // TODO
     private final GradeService gradeService;
     private final GradeMapper gradeMapper;
 
