@@ -1,5 +1,6 @@
 package com.example.demo.grade;
 
+import com.example.demo.subject.Subject;
 import lombok.RequiredArgsConstructor;
 import org.bson.types.ObjectId;
 import org.springframework.stereotype.Service;
@@ -16,6 +17,13 @@ public class GradeServiceHandler {
 
     public List<GradeDto> getAllGrades() {
         List<Grade> gradeList = gradeService.getAllGrades();
+        return gradeList.stream()
+                .map(gradeMapper::gradeToGradeDto)
+                .collect(Collectors.toList());
+    }
+
+    public List<GradeDto> getAllStudentGradesForSubject(final ObjectId studentId, final Subject subject) {
+        List<Grade> gradeList = gradeService.getAllStudentGradesForSubject(studentId, subject);
         return gradeList.stream()
                 .map(gradeMapper::gradeToGradeDto)
                 .collect(Collectors.toList());

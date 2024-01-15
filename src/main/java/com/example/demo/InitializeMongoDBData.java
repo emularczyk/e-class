@@ -49,12 +49,14 @@ public class InitializeMongoDBData implements CommandLineRunner {
     }
 
     private void createGrades() {
+        ObjectId studentId = new ObjectId();
+
         Grade grade = new Grade(
                 GradeType.TEST,
                 GradeValue.FOUR,
                 OffsetDateTime.now(ZoneId.systemDefault()),
                 4,
-                new ObjectId(),
+                studentId,
                 subjectList.get(0)
         );
         Grade grade2 = new Grade(
@@ -62,7 +64,7 @@ public class InitializeMongoDBData implements CommandLineRunner {
                 GradeValue.FOUR_PLUS,
                 OffsetDateTime.now(ZoneId.systemDefault()),
                 3,
-                new ObjectId(),
+                studentId,
                 subjectList.get(0)
         );
         Grade grade3 = new Grade(
@@ -70,7 +72,7 @@ public class InitializeMongoDBData implements CommandLineRunner {
                 GradeValue.FIVE,
                 OffsetDateTime.now(ZoneId.systemDefault()),
                 1,
-                new ObjectId(),
+                studentId,
                 subjectList.get(2)
         );
         Grade grade4 = new Grade(
@@ -78,7 +80,7 @@ public class InitializeMongoDBData implements CommandLineRunner {
                 GradeValue.THREE_PLUS,
                 OffsetDateTime.now(ZoneId.systemDefault()),
                 2,
-                new ObjectId(),
+                studentId,
                 subjectList.get(1)
         );
 

@@ -1,12 +1,14 @@
 package com.example.demo.grade;
 
 import com.example.demo.exceptions.GradeNotFoundException;
+import com.example.demo.subject.Subject;
 import lombok.RequiredArgsConstructor;
 import org.bson.types.ObjectId;
 import org.springframework.stereotype.Service;
 
 import java.time.OffsetDateTime;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @Service
@@ -15,6 +17,14 @@ public class GradeService {
 
     public List<Grade> getAllGrades() {
         return gradeRepository.findAll();
+    }
+
+    public List<Grade> getAllStudentGradesForSubject(final ObjectId studentId, final Subject subject) {
+        return gradeRepository.findAll()
+                .stream()
+                .filter(grade -> grade.getStudentId().equals(studentId))
+                .filter(grade -> grade.getSubject().getName().equals(subject.getName()))
+                .collect(Collectors.toList());
     }
 
     public Grade getGradeById(final ObjectId gradeId) {

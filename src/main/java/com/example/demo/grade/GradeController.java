@@ -1,5 +1,6 @@
 package com.example.demo.grade;
 
+import com.example.demo.subject.Subject;
 import lombok.RequiredArgsConstructor;
 import org.bson.types.ObjectId;
 import org.springframework.http.HttpStatus;
@@ -17,6 +18,12 @@ public class GradeController {
     @GetMapping
     public ResponseEntity<List<GradeDto>> getAllGrades() {
         List<GradeDto> gradeDtoList = gradeServiceHandler.getAllGrades();
+        return new ResponseEntity<>(gradeDtoList, HttpStatus.OK);
+    }
+
+    @GetMapping("/{studentId}/{subject}")
+    public ResponseEntity<List<GradeDto>> getAllStudentGradesForSubject(@PathVariable("studentId") final ObjectId studentId, @PathVariable("subject") final Subject subject) {
+        List<GradeDto> gradeDtoList = gradeServiceHandler.getAllStudentGradesForSubject(studentId, subject);
         return new ResponseEntity<>(gradeDtoList, HttpStatus.OK);
     }
 
