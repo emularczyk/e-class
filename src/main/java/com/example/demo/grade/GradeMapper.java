@@ -12,6 +12,7 @@ public class GradeMapper {
                 .date(grade.getDate())
                 .weight(grade.getWeight())
                 .studentId(grade.getStudentId())
+                .subject(grade.getSubject())
                 .build();
     }
 
@@ -22,6 +23,7 @@ public class GradeMapper {
                 .date(gradeDto.getDate())
                 .weight(gradeDto.getWeight())
                 .studentId(gradeDto.getStudentId())
+                .subject(gradeDto.getSubject())
                 .build();
     }
 

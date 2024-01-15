@@ -30,6 +30,7 @@ public class GradeService {
                         .date(OffsetDateTime.now())
                         .weight(gradeRequest.getWeight())
                         .studentId(gradeRequest.getStudentId())
+                        .subject(gradeRequest.getSubject())
                         .build()
         );
     }
@@ -45,6 +46,7 @@ public class GradeService {
                         .date(OffsetDateTime.now())
                         .weight(gradeRequest.getWeight())
                         .studentId(gradeRequest.getStudentId())
+                        .subject(gradeRequest.getSubject())
                         .build()
         );
     }

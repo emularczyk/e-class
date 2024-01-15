@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @Service
-public class ServiceHandler {
+public class GradeServiceHandler {
     // private final GradeValidator gradeValidator; // TODO
     private final GradeService gradeService;
     private final GradeMapper gradeMapper;
